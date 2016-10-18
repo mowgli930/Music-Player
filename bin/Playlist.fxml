@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<!-- stylesheets="@com/pineapple/yTunes/application/application.css"  -->
+<AnchorPane fx:id="anchorPane" minWidth="940.0" prefHeight="501.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pineapple.yTunes.application.Controller">
+   <children>
+      <HBox alignment="CENTER" prefHeight="75.0" prefWidth="940.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="304.0">
+               <children>
+                  <Button fx:id="previousbutton" mnemonicParsing="false" onAction="#previousButton" prefHeight="56.0" prefWidth="56.0" text="prev" />
+                  <Button fx:id="playpause" mnemonicParsing="false" onAction="#playPauseButton" prefHeight="56.0" prefWidth="56.0" text="play" />
+                  <Button fx:id="nextbutton" mnemonicParsing="false" onAction="#nextButton" prefHeight="56.0" prefWidth="56.0" text="next" />
+                  <Slider prefHeight="16.0" prefWidth="111.0" />
+               </children>
+            </HBox>
+            <VBox alignment="BOTTOM_CENTER" onMouseDragReleased="#onDragDroppedHandle" prefHeight="75.0" prefWidth="312.0">
+               <children>
+                  <Label fx:id="songNameLabel" text="pineApple" />
+                  <Label fx:id="artistAlbumLabel" text="yTunes" />
+                  <Slider prefHeight="16.0" prefWidth="111.0" />
+                  <ProgressBar prefHeight="20.0" prefWidth="316.0" progress="0.3" />
+               </children>
+            </VBox>
+            <HBox alignment="CENTER" prefHeight="75.0" prefWidth="306.0">
+               <children>
+                  <Button fx:id="repeatButton" mnemonicParsing="false" onAction="#repeatButton" text="Turn Off Repeat" />
+                  <ImageView fx:id="coverArtView" fitHeight="76.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </HBox>
+      <FlowPane fx:id="tableContainer" layoutY="75.0" onDragDropped="#onDragDroppedHandle" prefHeight="426.0" prefWidth="940.0">
+         <children>
+            <TableView fx:id="tableview" nodeOrientation="LEFT_TO_RIGHT" onDragDetected="#onDragOverHandle" onDragDone="#onDragDroppedHandle" onDragOver="#onDragOverHandle" prefHeight="426.0" prefWidth="941.0">
+               <columns>
+                  <TableColumn fx:id="songNameCol" prefWidth="257.0" text="Name" />
+                  <TableColumn fx:id="timeCol" minWidth="0.0" prefWidth="92.0" text="Time" />
+                  <TableColumn fx:id="artistCol" prefWidth="214.0" text="Artist" />
+                  <TableColumn fx:id="albumCol" prefWidth="236.0" text="Album" />
+                  <TableColumn fx:id="bitrateCol" prefWidth="50.0" text="Bitrate" />
+               </columns>
+            </TableView>
+         </children>
+      </FlowPane>
+   </children>
+</AnchorPane>
